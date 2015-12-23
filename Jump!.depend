@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1450872553 source:e:\programming\jump!\source.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<algorithm>
+
