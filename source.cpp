@@ -81,11 +81,21 @@ struct direction
 
 struct player
 {
+ bool in_air;
  direction horizontal,vertical;
  int lives,points;
  coordinates level_position,screen_position;
  std::string image_name;
  SDL_Surface *image;
+ player()
+ {
+  in_air=false;
+  horizontal.val=vertical.val=0;
+  lives=points=0;
+  level_position.x=level_position.y=screen_position.x=screen_position.y=0;
+  image_name="";
+  image=NULL;
+ }
  void generate_screen_position()
  {
   screen_position.x=(level_position.x-1)*40;
@@ -122,6 +132,7 @@ struct player
 };
 
 player timy;
+player monster;
 
 struct texture
 {
@@ -279,6 +290,13 @@ struct Timer
  }
 };
 
+void move_monster(player &M,level A)
+{
+ M.horizontal.val=(timy.level_position.y<M.level_position.y?-1:1);
+ M.horizontal.val=timy.level_position.y==M.level_position.y?0:M.horizontal.val;
+ M.vertical.val=(timy.level_position.x<M.level_position.x && A.MAP[M.level_position.x][M.level_position.y+M.horizontal.val].solid)?-1:0;
+}
+
 //Returns if the player is/isn't on solid texture
 bool update_position(level A,player &P)
 {
@@ -307,10 +325,12 @@ bool update_position(level A,player &P)
         {
          P.level_position.x++;
          P.vertical.val=P.horizontal.val=0;
+         P.in_air=true;
          return true;
         }
     }
  P.vertical.val=P.horizontal.val=0;
+ P.in_air=false;
  return false;
 }
 
@@ -364,6 +384,14 @@ int main( int argc, char* args[] )
  timy.horizontal.val=1;
  timy.load_image();
  timy.print_image();
+ monster.image_name="zombie.bmp";
+ monster.level_position.x=1;
+ monster.level_position.y=5;
+ monster.generate_screen_position();
+ monster.horizontal.val=1;
+ monster.load_image();
+ monster.horizontal.val=0;
+ monster.print_image();
  level TEST;
  TEST.filename="Test_Level.lvl";
  TEST.position.x=1;
@@ -381,28 +409,32 @@ int main( int argc, char* args[] )
  int frame=0;
  SDL_Event event;
  Uint8 *keystates=SDL_GetKeyState(NULL);
- bool quit=false;
+ bool quit=false,blocked=false;
  while(!quit)
        {
         fps.start();
         SDL_PollEvent( &event );
-        if(keystates[SDLK_RIGHT])
+        if(!blocked)
            {
-            timy.horizontal.val=1;
+            if(keystates[SDLK_RIGHT])
+               {
+                timy.horizontal.val=1;
+               }
+            if(keystates[SDLK_LEFT])
+               {
+                timy.horizontal.val=-1;
+               }
+            if(keystates[SDLK_SPACE] || keystates[SDLK_UP])
+               {
+                if(TEST.MAP[timy.level_position.x+1][timy.level_position.y].solid)
+                   timy.jump();
+               }
+            if(keystates[SDLK_ESCAPE])
+               {
+                quit=true;
+               }
            }
-        if(keystates[SDLK_LEFT])
-           {
-            timy.horizontal.val=-1;
-           }
-        if(keystates[SDLK_SPACE] || keystates[SDLK_UP])
-           {
-            if(TEST.MAP[timy.level_position.x+1][timy.level_position.y].solid)
-               timy.jump();
-           }
-        if(keystates[SDLK_ESCAPE])
-           {
-            quit=true;
-           }
+        blocked=false;
         if(event.type==SDL_QUIT)
            quit=true;
         timy.load_image();
@@ -410,12 +442,41 @@ int main( int argc, char* args[] )
         timy.erase_image();
         timy.generate_screen_position();
         timy.print_image();
+        move_monster(monster,TEST);
+        update_position(TEST,monster);
+        monster.load_image();
+        monster.erase_image();
+        monster.generate_screen_position();
+        monster.print_image();
         SDL_Flip(screen);
         //SDL_Delay(500);
         frame++;
         if(fps.get_ticks()<1000/FRAMES_PER_SECOND)
            {
-            SDL_Delay((1000/FRAMES_PER_SECOND)-fps.get_ticks());
+            if(timy.in_air || monster.in_air || true)
+               {
+                int X=((1000/FRAMES_PER_SECOND)-fps.get_ticks())/2;
+                SDL_Delay(X);
+                if(timy.in_air)
+                   {
+                    timy.load_image();
+                    update_position(TEST,timy);
+                    timy.erase_image();
+                    timy.generate_screen_position();
+                    timy.print_image();
+                    SDL_Flip(screen);
+                   }
+                if(monster.in_air)
+                   {
+                    monster.load_image();
+                    update_position(TEST,monster);
+                    monster.erase_image();
+                    monster.generate_screen_position();
+                    monster.print_image();
+                    SDL_Flip(screen);
+                   }
+                SDL_Delay(X);
+               }
            }
        }
  timy.erase_image();
