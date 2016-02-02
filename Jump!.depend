@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1451053512 source:e:\programming\jump!\source.cpp
+1454416679 source:e:\programming\jump!\source.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_mixer.h"
@@ -9,4 +9,118 @@
 	<cstring>
 	<stdlib.h>
 	<algorithm>
+	<thread>
+	"player.h"
+
+1454415900 source:e:\programming\jump!\game.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	"game.h"
+
+1454416151 source:e:\programming\jump!\level.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"level.h"
+
+1454414625 e:\programming\jump!\level.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"texture.h"
+
+1454416569 e:\programming\jump!\library.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"globals.h"
+
+1454414630 e:\programming\jump!\texture.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"library.h"
+
+1454416233 e:\programming\jump!\game.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+
+1454414636 e:\programming\jump!\player.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"level.h"
+
+1454416151 source:e:\programming\jump!\library.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"library.h"
+
+1454416151 source:e:\programming\jump!\player.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"player.h"
+
+1454416151 source:e:\programming\jump!\texture.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_mixer.h"
+	"SDL/SDL_image.h"
+	<cstdio>
+	<string>
+	<cstring>
+	<stdlib.h>
+	<algorithm>
+	"texture.h"
+
+1454416048 e:\programming\jump!\globals.h
+	"game.h"
 

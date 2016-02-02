@@ -32,7 +32,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
+		<Unit filename="globals.h" />
+		<Unit filename="level.cpp" />
+		<Unit filename="level.h" />
+		<Unit filename="library.cpp" />
+		<Unit filename="library.h" />
+		<Unit filename="player.cpp" />
+		<Unit filename="player.h" />
 		<Unit filename="source.cpp" />
+		<Unit filename="texture.cpp" />
+		<Unit filename="texture.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
