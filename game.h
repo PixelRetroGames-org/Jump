@@ -21,6 +21,6 @@ struct BigScreen
  void initialize();
 };
 
-extern BigScreen SCREEN;
+//extern BigScreen SCREEN;
 
 #endif

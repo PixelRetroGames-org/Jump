@@ -7,7 +7,6 @@
 #include<cstring>
 #include<stdlib.h>
 #include<algorithm>
-#include<thread>
 #include "player.h"
 
 BigScreen SCREEN;
