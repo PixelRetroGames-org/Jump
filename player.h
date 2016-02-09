@@ -37,4 +37,4 @@ struct player
  void erase_image();
  void jump();
 };
-#endif // player_CPP
+#endif

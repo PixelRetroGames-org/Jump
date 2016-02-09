@@ -16,11 +16,10 @@ struct BigScreen
  SDL_Surface *screen;
  BigScreen()
  {
-  screen=NULL;
+  //screen=NULL;
+  initialize();
  }
  void initialize();
 };
-
-//extern BigScreen SCREEN;
 
 #endif

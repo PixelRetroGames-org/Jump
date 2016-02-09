@@ -9,7 +9,7 @@
 #include<algorithm>
 #include "player.h"
 
-BigScreen SCREEN;
+//BigScreen SCREEN;
 
 player timy;
 player monster;

@@ -16,10 +16,8 @@ void BigScreen::initialize()
 {
  SDL_Init(SDL_INIT_EVERYTHING);
  screen=SDL_SetVideoMode(MAX_COL,MAX_LIN,32,SDL_SWSURFACE);
- SDL_WM_SetCaption("Jump!","Pixel RetroGames");
+ SDL_WM_SetCaption("Jump!","PixelRetroGames");
  TTF_Init();
 }
-
-//BigScreen SCREEN;
 
 #endif

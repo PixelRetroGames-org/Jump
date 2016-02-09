@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1454494964 source:e:\programming\jump!\source.cpp
+1455011395 source:e:\programming\jump!\source.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_mixer.h"
@@ -9,8 +9,6 @@
 	<cstring>
 	<stdlib.h>
 	<algorithm>
-	<thread>
-	"globals.h"
 	"player.h"
 
 1454415900 source:e:\programming\jump!\game.cpp
@@ -44,7 +42,7 @@
 	<algorithm>
 	"texture.h"
 
-1454416569 e:\programming\jump!\library.h
+1455011395 e:\programming\jump!\library.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_mixer.h"
@@ -68,13 +66,13 @@
 	<algorithm>
 	"library.h"
 
-1454495019 e:\programming\jump!\game.h
+1455012138 e:\programming\jump!\game.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_mixer.h"
 	"SDL/SDL_image.h"
 
-1454414636 e:\programming\jump!\player.h
+1454664909 e:\programming\jump!\player.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_mixer.h"
@@ -122,6 +120,6 @@
 	<algorithm>
 	"texture.h"
 
-1454495057 e:\programming\jump!\globals.h
+1455012135 e:\programming\jump!\globals.h
 	"game.h"
 
